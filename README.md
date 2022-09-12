@@ -31,3 +31,124 @@ public class Album
     public Artist Artist { get; set; }
 }
 ```
+<br/>
+
+## Sample query request
+```graphql
+query{
+  artist{
+    id
+    name
+    country
+    albums{
+      id
+      title
+      
+    }
+  }
+}
+```
+## Response 
+```json
+{
+  "data": {
+    "artist": [
+      {
+        "id": 1,
+        "name": "The Doors",
+        "country": "USA",
+        "albums": [
+          {
+            "id": 1,
+            "title": "LA Woman"
+          },
+          {
+            "id": 2,
+            "title": "Strange Days"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Country Joe and the Fish",
+        "country": "USA",
+        "albums": [
+          {
+            "id": 3,
+            "title": "Here We Are Again"
+          },
+          {
+            "id": 4,
+            "title": "Together"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Janis Joplin",
+        "country": "USA",
+        "albums": [
+          {
+            "id": 5,
+            "title": "Pearl"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Pink Floyd",
+        "country": "UK",
+        "albums": [
+          {
+            "id": 6,
+            "title": "The Dark Side of the Moon"
+          },
+          {
+            "id": 7,
+            "title": "The Division Bell"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+<br/>
+
+## sample mutation request
+```graphql
+mutation {
+    addAlbum (
+        input: {
+            artistId : 1
+            genre : "Rock"
+            title : "The Soft Parade"
+        }
+    )
+    {
+        album {
+          id
+          genre  
+          title
+        }
+        
+    }
+}
+```
+## Response 
+
+```json
+{
+  "data": {
+    "addAlbum": {
+      "album": {
+        "id": 3,
+        "genre": "Rock",
+        "title": "The Soft Parade"
+      }
+    }
+  }
+}
+```
+
