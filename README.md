@@ -151,4 +151,23 @@ mutation {
   }
 }
 ```
+<br/>
+
+## How to run : 
+#### 1. start SQL server 
+```bash
+docker compose up -d 
+```
+#### 2. Update database
+```bash
+dotnet ef database update
+```
+#### 3. restore n run
+```bash 
+dotnet restore && dotnet run
+```
+
+## License
+
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
